@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Entry date</th>
+      <th>Entry price</th>
+      <th>Exit date</th>
+      <th>Exit price</th>
+      <th>Profit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="align-middle">
+    <tr *ngFor="let trade of trades">
+      <td>{{trade.entryDate | amDateFormat: 'YYYY-MM-DD'}}</td>
+      <td>{{trade.entryPrice | currency}}</td>
+      <td>{{trade.exitDate | amDateFormat: 'YYYY-MM-DD'}}</td>
+      <td>{{trade.exitPrice | currency}}</td>
+      <td>{{trade.exitPrice - trade.entryPrice | currency}}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm" (click)="editTrade.next(trade.id)">Edit</button>
+        <button type="button" class="btn btn-danger btn-sm mx-1" (click)="removeTrade.next(trade.id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

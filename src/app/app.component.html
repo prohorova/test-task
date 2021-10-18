@@ -1,0 +1,23 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <app-trade-form
+        [trade]="tradeToEdit"
+        (addTrade)="onAddTrade($event)"
+        (updateTrade)="onUpdateTrade($event)"
+        (resetTrade)="onResetTrade()">
+      </app-trade-form>
+    </div>
+    <div class="col-md-6">
+      <app-trades-table
+        *ngIf="trades && trades.length"
+        [trades]="trades"
+        (editTrade)="onEditTrade($event)"
+        (removeTrade)="onRemoveTrade($event)">
+      </app-trades-table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>

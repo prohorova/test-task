@@ -1,0 +1,62 @@
+<div class="card card-body">
+  <h2 class="mb-4">{{isNewTrade ? 'Add new trade' : 'Edit trade'}}</h2>
+  <form [formGroup]="tradeForm" (submit)="submit()">
+    <div class="form-group">
+      <div class="mb-3 row">
+        <label for="entry-date" class="col-sm-3 col-form-label">Entry date</label>
+        <div class="col-sm-9">
+          <app-datepicker-input
+            [id]="'entry-date'"
+            formControlName="entryDate"
+            [isInvalid]="!tradeForm.get('entryDate')?.valid && tradeForm.get('entryDate')?.touched">
+          </app-datepicker-input>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-3 row">
+        <label for="entry-price" class="col-sm-3 col-form-label">Entry price</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 id="entry-price"
+                 class="form-control"
+                 formControlName="entryPrice"
+                 [ngClass]="{'is-invalid': !tradeForm.get('entryPrice')?.valid && tradeForm.get('entryPrice')?.touched}">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-3 row">
+        <label for="exit-date" class="col-sm-3 col-form-label">Exit date</label>
+        <div class="col-sm-9">
+          <app-datepicker-input
+            [id]="'exit-date'"
+            formControlName="exitDate"
+            [isInvalid]="!tradeForm.get('exitDate')?.valid && tradeForm.get('exitDate')?.touched">
+          </app-datepicker-input>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-3 row">
+        <label for="exit-price" class="col-sm-3 col-form-label">Exit price</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 id="exit-price"
+                 class="form-control"
+                 formControlName="exitPrice"
+                 [ngClass]="{'is-invalid': !tradeForm.get('exitPrice')?.valid && tradeForm.get('exitPrice')?.touched}">
+        </div>
+      </div>
+    </div>
+    <div class="alert alert- alert-danger" *ngIf="tradeForm.errors?.datesReversed">
+      Entry date should be less or equal to exit date
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!tradeForm.valid">
+      Submit
+    </button>
+    <button type="button" class="btn btn-outline-primary mx-1" *ngIf="!isNewTrade" (click)="resetTrade.next()">
+      Create new
+    </button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="input-group">
+  <input type="text"
+         [attr.id]="id"
+         class="form-control"
+         [ngClass]="{'is-invalid': isInvalid}"
+         [(ngModel)]="date"
+         ngbDatepicker
+         #d="ngbDatepicker"
+         (click)="onClick()"
+         autocomplete="off">
+  <button class="btn btn-outline-primary" type="button" (click)="toggle()">
+    <i class="fas fa-calendar"></i>
+  </button>
+</div>
