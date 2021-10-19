@@ -7,17 +7,17 @@
         (updateTrade)="onUpdateTrade($event)"
         (resetTrade)="onResetTrade()">
       </app-trade-form>
-    </div>
-    <div class="col-md-6">
+
       <app-trades-table
         *ngIf="trades && trades.length"
+        class="mt-3"
         [trades]="trades"
         (editTrade)="onEditTrade($event)"
         (removeTrade)="onRemoveTrade($event)">
       </app-trades-table>
     </div>
-  </div>
-  <div class="row">
-    <div class="col"></div>
+    <div class="col-md-6">
+      <app-trades-chart [trades]="trades"></app-trades-chart>
+    </div>
   </div>
 </div>

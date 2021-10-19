@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -8,6 +9,7 @@ import { DatepickerInputComponent } from './trade-form/datepicker-input/datepick
 import { TradesTableComponent } from './trades-table/trades-table.component';
 import { MomentModule } from 'ngx-moment';
 import { TradeFormComponent } from './trade-form/trade-form.component';
+import { TradesChartComponent } from './trades-chart/trades-chart.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import { TradeFormComponent } from './trade-form/trade-form.component';
     DatepickerInputComponent,
     TradesTableComponent,
     TradeFormComponent,
+    TradesChartComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    MomentModule
+    MomentModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

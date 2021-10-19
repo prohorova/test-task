@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   onAddTrade(trade: any) {
-    this.trades.push(trade);
+    this.trades = [trade, ...this.trades];
     this.createNewTrade();
   }
 

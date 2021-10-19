@@ -1,0 +1,11 @@
+<div *ngIf="trades && trades.length" >
+  <ngx-charts-area-chart
+    [legend]="legend"
+    [xAxis]="xAxis"
+    [xAxisTickFormatting]="dateTickFormatting"
+    [yAxis]="yAxis"
+    [showGridLines]="showGridLines"
+    [tooltipDisabled]="tooltipDisabled"
+    [results]="data">
+  </ngx-charts-area-chart>
+</div>
